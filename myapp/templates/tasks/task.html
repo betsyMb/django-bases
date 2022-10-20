@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+  </head>
+  <body>
+    {% extends 'layouts/base.html' %} {% block content %}
+
+    <h2>Tasks</h2>
+    {% for task in tasks %}
+    <div>
+      <h3> {% if task.done == False %}⏱{% else %}✅{% endif %} {{task.title}}</h3>
+      <p>{{task.description}}</p>
+      <p>Project: {{task.project}}</p>
+      <button>Delete</button>
+      <button>✅ Done</button>
+    </div>
+
+    {% endfor %}
+    {% endblock %}
+  </body>
+</html>
